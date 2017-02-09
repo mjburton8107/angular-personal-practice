@@ -3,8 +3,26 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body ng-controller="mainCtrl">
+    <div class="input-area">
+    <span>Name:</span> <input ng-model="name"></input>
+    <span>NiceScore:</span> <input type="number" ng-model="niceScore"></input>
+    <span>NaughtyScore:</span> <input type="number" ng-model="naughtyScore"></input>
+
+      <button ng-click="addNewPerson()">Add</button>
+    </div>
+
+    <div class="niceList">
+      <h3>Nice Peeps</h3>
+      <div ng-repeat="person in niceList">{{person.name}}</div>
+    </div>
+    <br/>
+    <div class="naughtyList">
+      <h3>Naughty Peeps</h3>
+      <div ng-repeat="person in naughtyList">{{person.name}}</div>
+    </div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>

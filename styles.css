@@ -1,0 +1,11 @@
+.input-area > span {
+  display:block;
+}
+
+.niceList {
+  border: 1px solid green;
+}
+
+.naughtyList {
+  border: 1px solid red;
+}
