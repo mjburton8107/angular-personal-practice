@@ -1,23 +1,18 @@
-angular.module('appName').controller('mainCtrl', function($scope){
+angular.module('appName').controller('mainCtrl', function($scope, niceService){
 
-  $scope.niceList = [];
-  $scope.naughtyList = [];
+  $scope.niceList = niceService.niceList;
+  $scope.naughtyList = niceService.naughtyList;
 
   $scope.addNewPerson = function(){
-    var differenceScore = $scope.niceScore - $scope.naughtyScore;
-
-    if (differenceScore >= 10){
-      $scope.niceList.push(buildPerson(differenceScore));
-    } else {
-        $scope.naughtyList.push(buildPerson(differenceScore));
-    }
+    var person = buildPerson();
+    niceService.addPerson(person)
   };
 
-function buildPerson(differenceScore){
-  return {
-    name: $scope.name,
-    score: differenceScore
-  }
-}
-
-})
+  function buildPerson(){
+    return{
+      name: $scope.name,
+      niceScore: $scope.niceScore,
+      naughtyScore: $scope.naughtyScore
+    }
+  };
+});
